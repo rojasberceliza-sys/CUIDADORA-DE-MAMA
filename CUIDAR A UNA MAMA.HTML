@@ -1,0 +1,562 @@
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Cuidando a Mamá</title>
+
+<style>
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background: #fff4f7;
+    color: #51434a;
+}
+
+header {
+    background: linear-gradient(135deg,#d96f9b,#a94c7b);
+    color: white;
+    text-align: center;
+    padding: 25px 15px;
+    border-radius: 0 0 25px 25px;
+}
+
+.logo {
+    font-size: 55px;
+}
+
+header h1 {
+    margin: 5px;
+}
+
+header p {
+    margin: 5px;
+}
+
+nav {
+    display: grid;
+    grid-template-columns: repeat(3,1fr);
+    gap: 8px;
+    padding: 12px;
+    position: sticky;
+    top: 0;
+    background: #fff4f7;
+    z-index: 10;
+}
+
+nav button {
+    border: none;
+    border-radius: 12px;
+    padding: 12px 4px;
+    background: #f3c4d7;
+    color: #71364e;
+    font-weight: bold;
+    font-size: 12px;
+}
+
+nav button:active {
+    background: #d96f9b;
+    color: white;
+}
+
+main {
+    padding: 12px;
+    max-width: 600px;
+    margin: auto;
+}
+
+section {
+    display: none;
+}
+
+section.active {
+    display: block;
+}
+
+.card {
+    background: white;
+    border-radius: 18px;
+    padding: 17px;
+    margin-bottom: 15px;
+    box-shadow: 0 3px 10px #d9a9bb44;
+}
+
+h2 {
+    color: #b54e7b;
+}
+
+h3 {
+    color: #a94c7b;
+}
+
+input, select, textarea {
+    width: 100%;
+    padding: 12px;
+    margin: 7px 0 12px;
+    border: 1px solid #e8b9cd;
+    border-radius: 10px;
+    font-size: 15px;
+    background: white;
+}
+
+button.action {
+    background: #c75c8b;
+    color: white;
+    border: none;
+    padding: 12px 17px;
+    border-radius: 10px;
+    font-size: 14px;
+    cursor: pointer;
+}
+
+button.delete {
+    background: #b94a4a;
+    color: white;
+    border: none;
+    padding: 8px;
+    border-radius: 8px;
+    margin: 5px;
+}
+
+.item {
+    background: #fff0f5;
+    border-left: 4px solid #d96f9b;
+    padding: 12px;
+    margin: 10px 0;
+    border-radius: 8px;
+    overflow-wrap: anywhere;
+}
+
+.icon {
+    font-size: 32px;
+}
+
+footer {
+    text-align: center;
+    padding: 20px;
+    color: #a94c7b;
+}
+
+.small {
+    font-size: 13px;
+    color: #76636b;
+}
+
+</style>
+</head>
+
+<body>
+
+<header>
+    <div class="logo">❤️ 👵</div>
+    <h1>Cuidando a Mamá</h1>
+    <p>Amor, atención y bienestar cada día</p>
+    <p>Una vida llena de cariño a los 85 años</p>
+</header>
+
+<nav>
+    <button onclick="mostrar('inicio')">🏠 Inicio</button>
+    <button onclick="mostrar('medicinas')">💊 Medicinas</button>
+    <button onclick="mostrar('comida')">🍎 Alimentación</button>
+    <button onclick="mostrar('higiene')">🛁 Higiene</button>
+    <button onclick="mostrar('actividades')">🚶 Actividades</button>
+    <button onclick="mostrar('salud')">❤️ Salud</button>
+    <button onclick="mostrar('rutina')">📅 Rutina</button>
+    <button onclick="mostrar('contactos')">☎️ Contactos</button>
+</nav>
+
+<main>
+
+<!-- INICIO -->
+<section id="inicio" class="active">
+
+<div class="card" style="text-align:center">
+    <div class="icon">🌷</div>
+    <h2>Bienvenida a Cuidando a Mamá</h2>
+    <p>Esta aplicación nos ayuda a organizar los cuidados diarios de nuestra querida mamá de 85 años.</p>
+    <h3>¡Cuidarla es un acto de amor!</h3>
+</div>
+
+<div class="card">
+    <h2>❤️ Consejos para cuidar a mamá</h2>
+    <div class="item">🥰 Brindarle mucho amor, paciencia y compañía.</div>
+    <div class="item">💧 Ofrecerle agua regularmente, respetando las indicaciones médicas.</div>
+    <div class="item">🥗 Preparar alimentos variados y adecuados a sus necesidades.</div>
+    <div class="item">💊 Respetar los medicamentos recetados.</div>
+    <div class="item">🛏️ Ayudarla a descansar cómodamente.</div>
+    <div class="item">👂 Escucharla y conversar con ella.</div>
+    <div class="item">🚶 Evitar caídas y acompañarla cuando camine si lo necesita.</div>
+</div>
+
+<div class="card">
+    <h2>🌸 Recordatorio importante</h2>
+    <p>La mamá necesita atención médica, cariño, respeto y compañía. Cada persona mayor tiene necesidades diferentes.</p>
+</div>
+
+</section>
+
+<!-- MEDICAMENTOS -->
+<section id="medicinas">
+<div class="card">
+    <h2>💊 Control de medicamentos</h2>
+    <label>Nombre del medicamento</label>
+    <input id="medNombre" placeholder="Ej. Medicamento recetado">
+
+    <label>Dosis indicada</label>
+    <input id="medDosis" placeholder="Ej. Según receta médica">
+
+    <label>Horario</label>
+    <input id="medHora" type="time">
+
+    <label>Observaciones</label>
+    <input id="medObs" placeholder="Indicaciones médicas">
+
+    <button class="action" onclick="agregar('medicinas')">Guardar medicamento</button>
+</div>
+
+<div class="card">
+    <h3>📋 Medicamentos registrados</h3>
+    <div id="listaMedicinas"></div>
+</div>
+</section>
+
+<!-- ALIMENTACIÓN -->
+<section id="comida">
+<div class="card">
+    <h2>🍎 Alimentación de mamá</h2>
+    <p>Una alimentación equilibrada debe adaptarse a sus enfermedades, apetito y necesidades nutricionales.</p>
+
+    <div class="item">🥣 Desayuno: alimentos nutritivos y fáciles de masticar.</div>
+    <div class="item">🍲 Almuerzo: verduras, proteínas y alimentos variados.</div>
+    <div class="item">🍌 Merienda: fruta o alimento adecuado a su dieta.</div>
+    <div class="item">🥗 Cena: comida ligera según sus necesidades.</div>
+    <div class="item">💧 Hidratación: ofrecer líquidos según indicación médica.</div>
+</div>
+
+<div class="card">
+    <h3>📝 Registrar alimentación</h3>
+    <label>Tipo de comida</label>
+    <select id="tipoComida">
+        <option>Desayuno</option>
+        <option>Almuerzo</option>
+        <option>Merienda</option>
+        <option>Cena</option>
+        <option>Agua y líquidos</option>
+    </select>
+
+    <label>¿Qué alimentos consumió?</label>
+    <textarea id="detalleComida" placeholder="Escribe los alimentos..."></textarea>
+
+    <button class="action" onclick="agregar('comida')">Guardar alimentación</button>
+    <div id="listaComida"></div>
+</div>
+</section>
+
+<!-- HIGIENE -->
+<section id="higiene">
+<div class="card">
+    <h2>🛁 Higiene y cuidado personal</h2>
+
+    <label><input type="checkbox"> Aseo personal</label>
+    <label><input type="checkbox"> Cepillado de dientes o limpieza bucal</label>
+    <label><input type="checkbox"> Cambio de ropa</label>
+    <label><input type="checkbox"> Limpieza y cuidado de la piel</label>
+    <label><input type="checkbox"> Higiene de manos</label>
+    <label><input type="checkbox"> Cambio de pañal si lo necesita</label>
+    <label><input type="checkbox"> Revisar que la cama esté limpia</label>
+</div>
+
+<div class="card">
+    <h3>🌷 Recomendaciones</h3>
+    <p>Usar agua a temperatura agradable, mantener privacidad y evitar productos que irriten la piel.</p>
+    <p>Revisar diariamente si aparecen heridas, enrojecimiento o molestias.</p>
+    <p>Evitar dejarla sola en el baño si existe riesgo de caída.</p>
+</div>
+</section>
+
+<!-- ACTIVIDADES -->
+<section id="actividades">
+<div class="card">
+    <h2>🚶 Actividades diarias</h2>
+    <div class="item">🌞 Conversar y compartir momentos familiares.</div>
+    <div class="item">🎵 Escuchar música que le guste.</div>
+    <div class="item">📖 Leer historias o mirar fotografías.</div>
+    <div class="item">🌻 Realizar actividades que disfrute.</div>
+    <div class="item">🚶 Caminar acompañada si puede hacerlo con seguridad.</div>
+    <div class="item">😴 Respetar sus horas de descanso.</div>
+</div>
+
+<div class="card">
+    <h3>Registrar actividad</h3>
+    <input id="actividadNombre" placeholder="Nombre de la actividad">
+    <input id="actividadHora" type="time">
+    <button class="action" onclick="agregar('actividades')">Guardar actividad</button>
+    <div id="listaActividades"></div>
+</div>
+</section>
+
+<!-- SALUD -->
+<section id="salud">
+<div class="card">
+    <h2>❤️ Control de salud</h2>
+    <p class="small">Registra las mediciones realizadas con instrumentos adecuados.</p>
+
+    <label>Presión arterial</label>
+    <input id="presion" placeholder="Ej. 120/80 mmHg">
+
+    <label>Temperatura (°C)</label>
+    <input id="temperatura" type="number" step="0.1" placeholder="Ej. 36.5">
+
+    <label>Observaciones</label>
+    <textarea id="observacion" placeholder="¿Cómo se encuentra mamá?"></textarea>
+
+    <button class="action" onclick="agregar('salud')">Guardar control</button>
+</div>
+
+<div class="card">
+    <h3>📋 Historial de salud</h3>
+    <div id="listaSalud"></div>
+</div>
+
+<div class="card">
+    <h3>⚠️ Señales de emergencia</h3>
+    <p>Solicita atención de emergencia ante dolor de pecho, dificultad para respirar, desmayo, confusión repentina o debilidad súbita de un lado del cuerpo.</p>
+    <p>Si presenta estos síntomas, busca ayuda médica inmediatamente.</p>
+</div>
+</section>
+
+<!-- RUTINA -->
+<section id="rutina">
+<div class="card">
+    <h2>📅 Rutina diaria de mamá</h2>
+
+    <label>Hora</label>
+    <input id="rutinaHora" type="time">
+
+    <label>Actividad</label>
+    <input id="rutinaActividad" placeholder="Ej. Desayunar">
+
+    <button class="action" onclick="agregar('rutina')">Agregar a la rutina</button>
+</div>
+
+<div class="card">
+    <h3>🕒 Horario de actividades</h3>
+    <div id="listaRutina"></div>
+</div>
+</section>
+
+<!-- CONTACTOS -->
+<section id="contactos">
+<div class="card">
+    <h2>☎️ Contactos familiares</h2>
+
+    <label>Nombre del familiar</label>
+    <input id="contactoNombre" placeholder="Nombre">
+
+    <label>Número de teléfono</label>
+    <input id="contactoTelefono" type="tel" placeholder="Teléfono">
+
+    <label>Parentesco</label>
+    <input id="contactoParentesco" placeholder="Ej. Hija, hijo">
+
+    <button class="action" onclick="agregar('contactos')">Guardar contacto</button>
+</div>
+
+<div class="card">
+    <h3>📞 Lista de contactos</h3>
+    <div id="listaContactos"></div>
+</div>
+
+<div class="card">
+    <h3>🚨 Emergencias</h3>
+    <p>Guarda aquí el número del centro de salud, médico y servicio de emergencia de tu localidad.</p>
+    <p><b>Importante:</b> No esperes a completar esta aplicación si mamá necesita atención urgente.</p>
+</div>
+</section>
+
+</main>
+
+<footer>
+    ❤️ Cuidando a Mamá ❤️
+    <p>El amor de una familia es el mejor regalo.</p>
+</footer>
+
+<script>
+
+// Almacenamiento de información
+function guardar(clave, datos) {
+    localStorage.setItem("mama_" + clave, JSON.stringify(datos));
+}
+
+function obtener(clave) {
+    return JSON.parse(localStorage.getItem("mama_" + clave) || "[]");
+}
+
+// Navegación
+function mostrar(id) {
+    document.querySelectorAll("main section").forEach(s => {
+        s.classList.remove("active");
+    });
+    document.getElementById(id).classList.add("active");
+    window.scrollTo(0,0);
+}
+
+// Agregar registros
+function agregar(tipo) {
+    let datos = obtener(tipo);
+    let registro = {};
+
+    if(tipo === "medicinas") {
+        registro = {
+            nombre: medNombre.value.trim(),
+            dosis: medDosis.value.trim(),
+            hora: medHora.value,
+            obs: medObs.value.trim()
+        };
+        if(!registro.nombre || !registro.hora) {
+            alert("Completa el nombre y el horario.");
+            return;
+        }
+    }
+
+    if(tipo === "comida") {
+        registro = {
+            nombre: tipoComida.value,
+            detalle: detalleComida.value.trim()
+        };
+        if(!registro.detalle) {
+            alert("Escribe los alimentos consumidos.");
+            return;
+        }
+    }
+
+    if(tipo === "actividades") {
+        registro = {
+            nombre: actividadNombre.value.trim(),
+            hora: actividadHora.value
+        };
+        if(!registro.nombre) {
+            alert("Escribe una actividad.");
+            return;
+        }
+    }
+
+    if(tipo === "salud") {
+        registro = {
+            presion: presion.value.trim(),
+            temperatura: temperatura.value,
+            obs: observacion.value.trim(),
+            fecha: new Date().toLocaleString()
+        };
+        if(!registro.presion && !registro.temperatura && !registro.obs) {
+            alert("Ingresa algún dato.");
+            return;
+        }
+    }
+
+    if(tipo === "rutina") {
+        registro = {
+            nombre: rutinaActividad.value.trim(),
+            hora: rutinaHora.value
+        };
+        if(!registro.nombre || !registro.hora) {
+            alert("Completa la actividad y la hora.");
+            return;
+        }
+    }
+
+    if(tipo === "contactos") {
+        registro = {
+            nombre: contactoNombre.value.trim(),
+            telefono: contactoTelefono.value.trim(),
+            parentesco: contactoParentesco.value.trim()
+        };
+        if(!registro.nombre || !registro.telefono) {
+            alert("Completa el nombre y teléfono.");
+            return;
+        }
+    }
+
+    datos.push(registro);
+    guardar(tipo, datos);
+    cargarTodo();
+    alert("¡Registro guardado correctamente!");
+
+    document.querySelectorAll("section input, section textarea").forEach(el => {
+        if(el.type !== "checkbox" && el.type !== "time") {
+            el.value = "";
+        }
+    });
+}
+
+// Mostrar registros
+function renderizar(tipo, elemento, plantilla) {
+    let datos = obtener(tipo);
+    let contenedor = document.getElementById(elemento);
+
+    contenedor.innerHTML = "";
+
+    datos.forEach((d, i) => {
+        let div = document.createElement("div");
+        div.className = "item";
+        div.innerHTML = plantilla(d) +
+            `<button class="delete" onclick="eliminar('${tipo}',${i})">Eliminar</button>`;
+        contenedor.appendChild(div);
+    });
+
+    if(datos.length === 0) {
+        contenedor.innerHTML = "<p class='small'>Todavía no hay registros.</p>";
+    }
+}
+
+function eliminar(tipo, indice) {
+    if(confirm("¿Deseas eliminar este registro?")) {
+        let datos = obtener(tipo);
+        datos.splice(indice,1);
+        guardar(tipo,datos);
+        cargarTodo();
+    }
+}
+
+function cargarTodo() {
+    renderizar("medicinas","listaMedicinas",d =>
+        `<b>💊 ${d.nombre}</b><br>
+        Dosis: ${d.dosis}<br>
+        Hora: ${d.hora}<br>
+        ${d.obs}`);
+
+    renderizar("comida","listaComida",d =>
+        `<b>🍎 ${d.nombre}</b><br>${d.detalle}`);
+
+    renderizar("actividades","listaActividades",d =>
+        `<b>🌷 ${d.nombre}</b><br>Hora: ${d.hora}`);
+
+    renderizar("salud","listaSalud",d =>
+        `<b>❤️ Control de salud</b><br>
+        Fecha: ${d.fecha}<br>
+        Presión: ${d.presion}<br>
+        Temperatura: ${d.temperatura}<br>
+        Observaciones: ${d.obs}`);
+
+    renderizar("rutina","listaRutina",d =>
+        `<b>📅 ${d.hora}</b><br>${d.nombre}`);
+
+    renderizar("contactos","listaContactos",d =>
+        `<b>☎️ ${d.nombre}</b><br>
+        Teléfono: ${d.telefono}<br>
+        Parentesco: ${d.parentesco}<br>
+        <a href="tel:${d.telefono}">Llamar ahora</a>`);
+}
+
+// Cargar datos guardados
+cargarTodo();
+
+</script>
+
+</body>
+</html>
